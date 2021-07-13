@@ -1,6 +1,10 @@
 const {src, dest, series, parallel, watch} = require('gulp')
 const sass = require('gulp-sass')
-const csso = require('gulp-csso')
+const postCss = require('gulp-postcss')
+const autoPrefixer = require('autoprefixer')
+const ccsnano = require('cssnano')
+// const csso = require('gulp-csso')
+const pug = require('gulp-pug')
 const htmlmin = require('gulp-htmlmin')
 const include = require('gulp-file-include')
 const babel = require('gulp-babel')
@@ -8,12 +12,12 @@ const replace = require('gulp-replace')
 const del = require('del')
 const sync = require('browser-sync')
 const imagemin = require('gulp-imagemin')
-const autoPrefixer = require('gulp-autoprefixer')
+const nested = require('postcss-nested') 
 
 // HTML
 
 function html() {
-  return src('src/*.html')
+  return src('src/*.html') 
     .pipe(include({
       prefix: '@'
     }))
@@ -24,16 +28,18 @@ function html() {
     .pipe(dest('build'))
     .pipe(sync.stream())
 }
+function htmlPug() {
+  return src('src/index.pug')
+    .pipe(pug())
+    .pipe(dest('./build'));
+}
 
 // STYLES
+const plagins = [nested, autoPrefixer({browsers: ['last 3 version']}), ccsnano]
 
 function styles() {
   return src('src/css/*.css')
-    .pipe(autoPrefixer({
-      overrideBrowserslist: ['last 5 versions'],
-      cascade: false
-    }))
-    .pipe(csso())
+    .pipe(postCss(plagins))
     .pipe(dest('build/css/'))
     .pipe(sync.stream())
 }
@@ -58,9 +64,16 @@ function imgmin() {
 // FONTS
 
 function fonts() {
-  return src('src/fonts/*')
+  return src('src/fonts/**/*')
     .pipe(dest('build/fonts/'))
 }
+
+// ASSETS 
+function assets() {
+  return src('src/assets/*')
+  .pipe(dest('build/assets/'))
+}
+
 
 function clean() {
   return del('build')
@@ -71,7 +84,8 @@ function serve() {
     server: './build'
   })
 
-  watch(['src/*.html', 'src/blocks/*.html'], html)
+  // watch(['src/*.html', 'src/blocks/*.html'], html)
+  watch('src/*.pug', htmlPug)
   watch('src/css/*.css', styles)
   watch('src/js/*.js', scripts)
 }
@@ -79,11 +93,11 @@ function serve() {
 // ** EXPORTS **
 exports.build = series(
   clean,
-  parallel(html, styles, scripts, imgmin, fonts)
+  parallel(htmlPug, styles, scripts, imgmin, fonts, assets)
 )
 
 exports.serve = series(
   clean,
-  parallel(html, styles, scripts),
+  parallel(styles, scripts, imgmin, fonts),
   serve
 )

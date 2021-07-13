@@ -1,2 +1,82 @@
 @import url('fonts.css');
-@import url('variables.css');
+@import url('min.css');
+
+:root {
+  /* color */
+  --bg-color: #fff;
+  --bg-black: #333333;
+  --btn: linear-gradient(180deg, #EA384D 0%, #D31027 100%);
+  --btn-not-accent: #F2F4F6;
+  /* font  */
+  --fz: 16px;
+  --fz-h2: 42px;
+  --fz-h3: 24px;
+  --fz-desc: 20px;
+  --fz-btn: 15px;
+  --fz-navbar-left: 14px;
+  --fz-docs: 12px;
+  /* content */
+  --content-width: 1160px;
+  --border-radius: 5px;
+
+  @media (max-width: 1024px) {
+    --fz-h2: 36px;
+    --fz-h3: 20px;
+  }
+  @media (max-width: 768px) {
+    --fz: 14px;
+    --fz-h2: 32px;
+    --fz-desc: 16px;
+    --padding-container: 50px;
+    --h-plashka: 157px;
+  }
+  @media (max-width: 480px) {
+    --fz-h2: 24px;
+    --fz-btn: 12px;
+    --fz-navbar-left: 10px;
+    --size-prev-next: 32px;
+    --fz-docs: 10px;
+  }
+}
+.body{
+  font-family: Gilroy, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+.container {
+  max-width: var(--content-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: 480px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+/* Animation */
+*[data-animate-on-scroll] {
+  opacity: 0;
+}
+*[data-animate-on-scroll=animated] {
+  opacity: 1;
+  animation: wipe-enter 2s;
+}
+
+@keyframes wipe-enter {
+  0% {
+    opacity: 0;
+    transform: translate(0, -20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
