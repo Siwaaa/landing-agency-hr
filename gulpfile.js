@@ -12,7 +12,9 @@ const replace = require('gulp-replace')
 const del = require('del')
 const sync = require('browser-sync')
 const imagemin = require('gulp-imagemin')
-const nested = require('postcss-nested') 
+const nested = require('postcss-nested')
+const postcssCustomMedia = require('postcss-custom-media');
+
 
 // HTML
 
@@ -30,12 +32,14 @@ function html() {
 }
 function htmlPug() {
   return src('src/index.pug')
-    .pipe(pug())
+    .pipe(pug({
+      pretty: true
+    }))
     .pipe(dest('./build'));
 }
 
 // STYLES
-const plagins = [nested, autoPrefixer({browsers: ['last 3 version']}), ccsnano]
+const plagins = [nested, postcssCustomMedia, autoPrefixer({overrideBrowserslist: ['last 3 version']}), ccsnano]
 
 function styles() {
   return src('src/css/*.css')
@@ -64,14 +68,14 @@ function imgmin() {
 // FONTS
 
 function fonts() {
-  return src('src/fonts/**/*')
+  return src('src/fonts/*')
     .pipe(dest('build/fonts/'))
 }
 
 // ASSETS 
 function assets() {
   return src('src/assets/*')
-  .pipe(dest('build/assets/'))
+  .pipe(dest('build/'))
 }
 
 
@@ -85,7 +89,7 @@ function serve() {
   })
 
   // watch(['src/*.html', 'src/blocks/*.html'], html)
-  watch('src/*.pug', htmlPug)
+  watch(['src/*.pug', 'data/types/*.md'], htmlPug)
   watch('src/css/*.css', styles)
   watch('src/js/*.js', scripts)
 }
@@ -98,6 +102,6 @@ exports.build = series(
 
 exports.serve = series(
   clean,
-  parallel(styles, scripts, imgmin, fonts),
+  parallel(htmlPug, styles, scripts, imgmin, fonts, assets),
   serve
 )

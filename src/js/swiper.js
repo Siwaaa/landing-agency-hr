@@ -1,34 +1,14 @@
-const swiper = new Swiper('.programs__carusel', {
+const swiper = new Swiper('.partners__slider', {
   // Optional parameters
-  slidesPerView: 1,
-  spaceBetween: 30,
+  slidesPerView: 2,
+  slidesPerGroup: 2,
+  spaceBetween: 40,
   CSSWidthAndHeight: true,
-  preloadImages: false,
+  // preloadImages: false,
   loop: true,
-  // grabCursor: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
+  grabCursor: true,
   navigation: {
-    nextEl: ".programs__next",
-    prevEl: ".programs__prev",
-  },
-});
-
-const swiper2 = new Swiper('.swiper-slide__img ', {
-  // Optional parameters
-  slidesPerView: 1,
-  spaceBetween: 30,
-  CSSWidthAndHeight: true,
-  preloadImages: false,
-  lazy: {
-    loadOnTransitionStart: true,
-  },
-  loop: true,
-  nested: true,
-  navigation: {
-    nextEl: ".programs-in-swiper__next",
-    prevEl: ".programs-in-swiper__prev",
+    nextEl: ".partners__next",
+    prevEl: ".partners__prev",
   },
 });

@@ -1,0 +1,99 @@
+section.quiz 
+  .quiz__container.container
+    .quiz__body
+      .quiz__body-content
+        .head
+          h2 <b>Ответьте на 5 простых вопросов</b> и мы подберём вам лучшего специалиста
+        .timer 
+          .timer__qu Вопросы 1 из 5
+          .timer__timeline
+            .timeline-loading
+        div(data-quiz-page="1" class="quiz__qu")
+          .quiz__qu-heading
+            p Когда вам нужен специалист?
+          .quiz__qu-body 
+            .quiz__qu-body--checkbox
+              .qu-input-cont
+                input(type="checkbox" id="i1-1" name="i1-1" value="Уже сегодня" class="input-checkbox")
+                label(for="i1-1") Уже сегодня
+              .qu-input-cont
+                input(type="checkbox" id="i1-2" name="i1-2" value="Уже сегодня" class="input-checkbox")
+                label(for="i1-2") Через месяц
+              .qu-input-cont
+                input(type="checkbox" id="i1-3" name="i1-3" value="Через неделю" class="input-checkbox")
+                label(for="i1-3") Через неделю
+              .qu-input-cont
+                input(type="checkbox" id="i1-4" name="i1-4" value="Более месяца" class="input-checkbox")
+                label(for="i1-4") Более месяца
+          .quiz__qu-btns 
+            button(type="button" class="btn btn-cancel" ) Назад
+            button(type="button" class="btn btn-main" ) Далее
+        div(data-quiz-page="2" data-animate-on-scroll class="quiz__qu")
+          .quiz__qu-heading
+            p Выберите график работы специалиста?
+          .quiz__qu-body 
+            .quiz__qu-body--checkbox
+              .qu-input-cont
+                input(type="checkbox" id="i2-1" name="i2-1" value="Пятидневный" class="input-checkbox")
+                label(for="i2-1") Пятидневный
+              .qu-input-cont
+                input(type="checkbox" id="i2-2" name="i2-2" value="Сменный график" class="input-checkbox")
+                label(for="i2-2") Сменный график
+              .qu-input-cont
+                input(type="checkbox" id="i2-3" name="i2-3" value="Вахтовый" class="input-checkbox")
+                label(for="i2-3") Вахтовый
+              .qu-input-cont
+                input(type="checkbox" id="i2-4" name="i2-4" value="Другое" class="input-checkbox")
+                label(for="i2-4") Другое
+          .quiz__qu-btns 
+            button(type="button" class="btn btn-cancel" ) Назад
+            button(type="button" class="btn btn-main" ) Далее
+        div(data-quiz-page="3" data-animate-on-scroll class="quiz__qu")
+          .quiz__qu-heading
+            p Опишите должностные обязанности специалиста
+          .quiz__qu-body 
+            .quiz__qu-body--textarea
+              textarea(id="i3-1" name="i3-1" row="5" value="Более месяца" placeholder="Краткое описание" class="input-checkbox")
+          .quiz__qu-btns 
+            button(type="button" class="btn btn-cancel" ) Назад
+            button(type="button" class="btn btn-main" ) Далее
+        div(data-quiz-page="4" data-animate-on-scroll class="quiz__qu")
+          .quiz__qu-heading
+            p Выберите опыт работы специалиста?
+          .quiz__qu-body 
+            .quiz__qu-body--checkbox
+              .qu-input-cont
+                input(type="checkbox" id="i4-1" name="i4-1" value="До 1 года" class="input-checkbox")
+                label(for="i4-1") До 1 года
+              .qu-input-cont
+                input(type="checkbox" id="i4-2" name="i4-2" value="Более 3-х лет" class="input-checkbox")
+                label(for="i4-2") Более 3-х лет
+              .qu-input-cont
+                input(type="checkbox" id="i4-3" name="i4-3" value="Менее 3-х лет" class="input-checkbox")
+                label(for="i4-3") Менее 3-х лет
+              .qu-input-cont
+                input(type="checkbox" id="i4-4" name="i4-4" value="Не важно" class="input-checkbox")
+                label(for="i4-4") Не важно
+          .quiz__qu-btns 
+            button(type="button" class="btn btn-cancel" ) Назад
+            button(type="button" class="btn btn-main" ) Далее
+        div(data-quiz-page="5" data-animate-on-scroll class="quiz__qu")
+          .quiz__qu-heading
+            p Остался последний шаг
+          .quiz__qu-body 
+            form.quiz__qu-body--form
+              input(required type="text" placeholder="Ваше ФИО")
+              input(type="text" placeholder="Название компании")
+              input(required type="number" placeholder="Ваш номер")
+              button(type="button" class="btn btn-main" ) ОТПРАВИТЬ ДАННЫЕ
+            p Нажимая на кнопку «Отправить данные», вы принимаете политику конфиденциальности
+      .quiz__body-info
+        img(src="./img/quiz-evg.png", alt="Евгения Рушенцева")
+        h3 Евгения Рушенцева
+        i Руководитель и основатель <br> кадрового агентства RuHunters
+        p
+          i “Здравствуйте, меня зовут Евгения и я помогу найти вам лучшего специалиста в вашу команду. После прохождения теста <span>вы получите:</span>
+        .quiz__body-info__gift
+          p <b>Личную консультацию</b> по повышению работоспособности персонала
+        .quiz__body-info__gift
+          p <b>Сроки</b> предоставления лучшего кандидата на выбранную должность

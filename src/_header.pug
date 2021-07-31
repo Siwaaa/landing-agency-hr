@@ -1,2 +1,70 @@
-section
-  .container
+- var values = ["Подобрать специалиста", "Услуги", "Будьте осторожны", "Как мы работаем", "О нас", "Отзывы клиентов"];
+
+
+header.header 
+  .container.header__container
+    .navbar
+      .navbar__header
+        .navbar__item
+          img(src="./img/logo.svg", alt="Логотип компании")
+          p Агентство по подбору персонала в г. Екатеринбург с гарантией 6 месяцев
+        .navbar__item
+          img(src="./img/location.svg")
+          .navbar__item__loc
+            p 
+              b г. Екатеринбург, 
+              br/ ул. Красноармейская БЦ «Антей»
+            a(href="#") Посмотреть на карте
+        .navbar__item
+          p Задайте вопрос online:
+          .social 
+            a(href="") 
+              img(src="./img/wa.png")
+            a(href="") 
+              img(src="./img/telegram.png")
+            a(href="")
+              img(src="./img/viber.png")
+        .navbar__item
+          span ежедневно 08:00-17:00
+          a(class="tel" href="tel:+79126173106") 7 912 617 31 06
+          a(class="mail" href="mailto:ru_hunters@mail.ru")  ru_hunters@mail.ru
+      .navbar__menu
+        ul.menu.container
+          each val in values
+            li.menu__item
+              a(href="#")= val
+
+    .header__body
+      .header__body-left
+        h1 <b>Подберём специалиста за 15 дней,</b> которого вам не придётся менять с гарантией 6 месяцев
+        .header__info
+          .header__info-item
+            img(src="./img/icons-h-1.png")
+            p <b>Отбор лучших специалистов</b> вашего города
+          .header__info-item
+            img(src="./img/icons-h-2.svg")
+            p <b>Детальная отчётность</b><br> о каждом кандидате
+          .header__info-item
+            img(src="./img/icons-h-3.svg")
+            p <b>Индивидуальное решение</b> в сфере управления персоналом
+          .header__info-item
+            img(src="./img/icons-h-4.svg")
+            p <b>Консультация от главного HR —</b> «стратегия работы с командой»
+        .header-mob 
+          img(class="header__img" src="./img/header-evgeny.png" alt="Рушенцева Евгения")
+          .header-parallax
+            div(class="header-parallax__item" data-depth="0.50")
+              p Евгения Рушенцева
+            div(class="header-parallax__item" data-depth="0.50")
+              p HR с 17 летним опытом работы
+        a(class="btn btn-main header-btn" href="#") Подобрать специалиста
+      .header__body-right
+        img(class="header__img" src="./img/header-evgeny.png" alt="Рушенцева Евгения")
+        .header-parallax.parallax-scene
+          div(class="header-parallax__item" data-depth="0.50")
+            p Евгения Рушенцева
+          div(class="header-parallax__item" data-depth="0.50")
+            p HR с 17 летним опытом работы
+
+
+      

@@ -1,0 +1,26 @@
+mixin modal(id, item)
+  .modal(id="id" onclick="")
+    .modal-content
+      .modal-content__body
+        .modal__head
+          h2= item.title
+        form.modal-form
+          case item.type
+            when 'form'
+              input(type="hidden" name="perezvon") 
+              input(required name="name" type="text" placeholder="Ваше имя" class="input")
+              input(name="kogo" type="text" placeholder="Кого ищете" class="input")
+              input(name="company" type="text" placeholder="Название компании" class="input")
+              input(required name="tel" type="tel" placeholder="+7 (_ _ _) _ _ _ - _ _ - _ _" class="input")
+              input(required name="email" type="email" placeholder="Ваш E-mail" class="input")
+
+            when 'thanks'
+              input(type="hidden" name="perezvon") 
+              input(required name="name" type="text" placeholder="Введите имя" class="input")
+              input(required name="tel" type="tel" placeholder="Введите номер телефона" class="input")
+              
+            default
+              p Модальное окно
+          .submit
+            button(type="submit" class="btn btn-main") ПОДОБРАТЬ СПЕЦИАЛИСТОВ
+            p Нажимая на кнопку вы соглашаетесь с условиями обработки данных и <a href="#">политикой конфиденциальности</a>
