@@ -1,9 +1,9 @@
 section.forma 
   .forma__container.container
     .forma__head.head 
-      h2 У вас ещё <b>остались вопросы?</b> 
+      h2 У вас <b>остались вопросы?</b> 
       span Запишитесь на 20 минутную бесплатную онлайн-консультацию и мы обсудим структуру работы вашей команды и договоримся о личной встрече
-    .forma__body
+    div(class="forma__body" data-animate-on-scroll)
       .privilege-form
         .privilege-form__item 
           img(src="./img/check.svg", alt="чекбокс")
@@ -25,8 +25,8 @@ section.forma
           .forma-form__format 
             p <b>Формат</b>: Skype или Zoom
             p <b>Длительность</b>: 30 мин
-          .forma-form__submit
-            input(class="input" type="number" placeholder="+7 (_ _ _) _ _ _ - _ _ - _ _" name="number")
-            a(class="btn btn-main" href="#") ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ
+          form.forma-form__submit
+            input(class="input" type="tel" placeholder="+7 (_ _ _) _ _ _ - _ _ - _ _" name="number")
+            button(type="submit" class="btn btn-main") ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ
           
     

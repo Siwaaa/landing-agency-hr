@@ -14,27 +14,40 @@ header.header
             p 
               b г. Екатеринбург, 
               br/ ул. Красноармейская БЦ «Антей»
-            a(href="#") Посмотреть на карте
+            a(href="#maps") Посмотреть на карте
         .navbar__item
           p Задайте вопрос online:
           .social 
-            a(href="") 
+            a(href="#") 
               img(src="./img/wa.png")
-            a(href="") 
+            a(href="#") 
               img(src="./img/telegram.png")
-            a(href="")
+            a(href="#")
               img(src="./img/viber.png")
         .navbar__item
           span ежедневно 08:00-17:00
           a(class="tel" href="tel:+79126173106") 7 912 617 31 06
           a(class="mail" href="mailto:ru_hunters@mail.ru")  ru_hunters@mail.ru
+        .navbar__item.burger
+          input(type="checkbox" name="burger" id="burger")
+          label(for="burger")
+            .burger__icon
       .navbar__menu
         ul.menu.container
           each val in values
             li.menu__item
               a(href="#")= val
+          .menu__social
+            p Задайте вопрос online:
+            .social 
+              a(href="") 
+                img(src="./img/wa.png")
+              a(href="") 
+                img(src="./img/telegram.png")
+              a(href="")
+                img(src="./img/viber.png")
 
-    .header__body
+    div(class="header__body" data-animate-on-scroll)
       .header__body-left
         h1 <b>Подберём специалиста за 15 дней,</b> которого вам не придётся менять с гарантией 6 месяцев
         .header__info
@@ -57,14 +70,16 @@ header.header
               p Евгения Рушенцева
             div(class="header-parallax__item" data-depth="0.50")
               p HR с 17 летним опытом работы
-        a(class="btn btn-main header-btn" href="#") Подобрать специалиста
+        button(type="button" class="btn btn-main header-btn btn-to-form") Подобрать специалиста
       .header__body-right
         img(class="header__img" src="./img/header-evgeny.png" alt="Рушенцева Евгения")
         .header-parallax.parallax-scene
           div(class="header-parallax__item" data-depth="0.50")
-            p Евгения Рушенцева
+            #parallax-top
+              p Евгения Рушенцева
           div(class="header-parallax__item" data-depth="0.50")
-            p HR с 17 летним опытом работы
+            #parallax-bottom
+              p HR с 17 летним опытом работы
 
 
       

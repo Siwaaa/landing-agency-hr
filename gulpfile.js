@@ -31,10 +31,8 @@ function html() {
     .pipe(sync.stream())
 }
 function htmlPug() {
-  return src('src/index.pug')
-    .pipe(pug({
-      pretty: true
-    }))
+  return src(['src/index.pug', 'src/thanks.pug'])
+    .pipe(pug())
     .pipe(dest('./build'));
 }
 

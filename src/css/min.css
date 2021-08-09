@@ -22,6 +22,9 @@ a {
   background-color: transparent;
   text-decoration: none;
 }
+iframe {
+  border: none;
+}
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
@@ -64,6 +67,9 @@ button, input {
 }
 button, select {
   text-transform: none;
+}
+button:disabled {
+  cursor: not-allowed;
 }
 select {
   outline: none;

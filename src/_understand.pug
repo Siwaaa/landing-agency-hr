@@ -3,7 +3,7 @@ section.understand
     .understand__head.head
       h2 К сожалению <b>90% кадровых агенств не понимают, кто вам нужен на самом деле</b>
       span и отправляют вам первую попавшуюся заявку
-    .understand__body
+    div(class="understand__body" data-animate-on-scroll)
       .understand__item 
         .understand__item-heading
           img(src="./img/unders-1.png")
@@ -30,3 +30,28 @@ section.understand
           img(src="./img/unders-4.png")
         .understand__item-body
           p Кандидат <b>не понимает ценности</b> вашей компании
+    .understand__body--swiper.swiper-container
+      .understand__wrapper.swiper-wrapper
+        .understand__item.swiper-slide 
+          .understand__item-heading
+            img(src="./img/unders-1.png")
+          .understand__item-body
+            p <b>Отсутствие мониторинга</b> заработных плат
+        .understand__item.swiper-slide 
+          .understand__item-heading
+            img(src="./img/unders-2.png")
+          .understand__item-body
+            p Не имеют собственной <b>базы соискателей</b>
+        .understand__item.swiper-slide 
+          .understand__item-heading
+            img(src="./img/unders-3.png")
+          .understand__item-body
+            p <b>Постоянные звонки</b> с вами и переносы сроков
+        .understand__item.swiper-slide 
+          .understand__item-heading
+            img(src="./img/unders-4.png")
+          .understand__item-body
+            p Кандидат <b>не понимает ценности</b> вашей компании
+      .partners__nav 
+        .partners__prev.understand-prev
+        .partners__next.understand-next

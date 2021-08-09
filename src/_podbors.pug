@@ -3,7 +3,7 @@ section.podbors
     .podbors__head.head 
       h2 <b>Занимаемся подбором и обучением персонала</b> с 2004 года
       span За всё время работы трудоустроили и обучили более 7 000 специалистов
-    .podbors__body
+    div(class="podbors__body" data-animate-on-scroll)
       .podbors__item 
         .podbors__item-heading
           h3 Подбор топ-менеджеров 
@@ -13,42 +13,96 @@ section.podbors
           + Собственная база соискателей с лучшими топ-менеджерами города
       .podbors__item 
         .podbors__item-heading
-          h3 GHHjsdjffddsfdfs 
+          h3 Подбор IT-специалистов 
           img(src="./img/podbor-2.svg" )
-        p ../data/types/it.md
+        p Закрываем вакансии разработки, поддержки, аналитики и менеджмента на предприятии
       .podbors__item 
         .podbors__item-heading
-          h3 GHHjsdjffddsfdfs 
+          h3 Подбор линейного персонала 
           img(src="./img/podbor-3.svg" )
-        p ../data/types/line_staff.md
+        p Занимаемся подбором, как высококвалифицированных, так и неквалифицированных специалистов (например сварщики)
       .podbors__item 
         .podbors__item-heading
-          h3 GHHjsdjffddsfdfs 
+          h3 Поиск и подбор редких специалистов 
           img(src="./img/podbor-4.svg" )
-        p ../data/types/rare_staff.md
+        p Подбор профессионалов узкого профиля, редкие IT-специалисты, технологи и т.д. 
+        . 
+          + Собственная база соискателей
       .podbors__item 
         .podbors__item-heading
-          h3 GHHjsdjffddsfdfs 
+          h3 Формирование отдела продаж 
           img(src="./img/podbor-5.svg" )
-        p fsdfsdfdsfdsfdsfsd
+        p Построим прибыльный отдел продаж с помощью проверенных инструментов найма, обучения и мотивации персонала
       .podbors__item 
         .podbors__item-heading
-          h3 GHHjsdjffddsfdfs 
+          h3 Обучение персонала внутри компании 
           img(src="./img/podbor-6.svg" )
-        p fsdfsdfdsfdsfdsfsd
+        p Обучение проводится на территории организации без отрыва сотрудников от работы
       .podbors__item 
         .podbors__item-heading
-          h3 GHHjsdjffddsfdfs 
+          h3 Оценка и система мотивации персонала 
           img(src="./img/podbor-7.svg" )
-        p fsdfsdfdsfdsfdsfsd
+        p Выделяем сильные и слабые стороны сотрудников. Ставим KPI на год, готовим стратегию обучения и роста персонала
       .podbors__item 
         .podbors__item-heading
-          h3 GHHjsdjffddsfdfs 
+          h3 Корпоративная культура и адаптация персонала 
           img(src="./img/podbor-8.svg" )
-        p fsdfsdfdsfdsfdsfsd
+        p Правильная корпоративная культура всегда ведёт к повышению эффективности каждого работника и компании в целом
       .podbors__item 
         .podbors__item-heading
-          h3 GHHjsdjffddsfdfs 
+          h3 Подбор руководителей высшего и среднего звена 
           img(src="./img/podbor-9.svg" )
-        p fsdfsdfdsfdsfdsfsd
-    a(class="btn btn-main" href="#") Обсудить подробнее
+        p Опытные руководители освободят ваше время и возьмут важные задачи под свой контроль
+    .podbors__body--swiper.swiper-container
+      .podbors__wrapper.swiper-wrapper
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Подбор топ-менеджеров 
+            img(src="./img/podbor-1.svg")
+          p Подберем успешного руководителя из конкретного сегмента рынка. 
+          p + Собственная база соискателей с лучшими топ-менеджерами города
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Подбор IT-специалистов 
+            img(src="./img/podbor-2.svg" )
+          p Закрываем вакансии разработки, поддержки, аналитики и менеджмента на предприятии
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Подбор линейного персонала 
+            img(src="./img/podbor-3.svg" )
+          p Занимаемся подбором, как высококвалифицированных, так и неквалифицированных специалистов (например сварщики)
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Поиск и подбор редких специалистов 
+            img(src="./img/podbor-4.svg" )
+          p Подбор профессионалов узкого профиля, редкие IT-специалисты, технологи и т.д. 
+          p + Собственная база соискателей
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Формирование отдела продаж 
+            img(src="./img/podbor-5.svg" )
+          p Построим прибыльный отдел продаж с помощью проверенных инструментов найма, обучения и мотивации персонала
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Обучение персонала внутри компании 
+            img(src="./img/podbor-6.svg" )
+          p Обучение проводится на территории организации без отрыва сотрудников от работы
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Оценка и система мотивации персонала 
+            img(src="./img/podbor-7.svg" )
+          p Выделяем сильные и слабые стороны сотрудников. Ставим KPI на год, готовим стратегию обучения и роста персонала
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Корпоративная культура и адаптация персонала 
+            img(src="./img/podbor-8.svg" )
+          p Правильная корпоративная культура всегда ведёт к повышению эффективности каждого работника и компании в целом
+        .podbors__item.swiper-slide 
+          .podbors__item-heading
+            h3 Подбор руководителей высшего и среднего звена 
+            img(src="./img/podbor-9.svg" )
+          p Опытные руководители освободят ваше время и возьмут важные задачи под свой контроль
+      .partners__nav 
+        .partners__prev.podbor-prev
+        .partners__next.podbor-next
+    button(type="button" class="btn btn-main btn-to-form") Обсудить подробнее

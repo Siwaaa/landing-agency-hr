@@ -1,20 +1,20 @@
 section.facts 
   .facts__container.container
     .facts__body
-      .facts__evg 
+      div(class="facts__evg" data-animate-on-scroll)
         .facts__evg-left 
           img(src="./img/evg-facts.png", alt="Евгения Рушенцева")
           .facts__evg-left-desc
-            .facts__evg-left-desc-item 
+            .facts__evg-left-desc__item 
               img(src="./img/icons-fact-1.svg", alt="")
               p Бизнес тренер <br> HR-дисциплин
-            .facts__evg-left-desc-item 
+            .facts__evg-left-desc__item 
               img(src="./img/icons-fact-2.svg", alt="")
               p 18 лет опыта в HR
         .facts__evg-right
           h2 Здравствуйте, меня зовут <b>Евгения Рушенцева</b>
           .facts__evg-right-desc
-            p я руководитель кадрового <i>агентства «RuHunters»</i> в Екатеринбурге, которое на экспертном уровне решает задачи с подбором и обучением персонал
+            p я руководитель кадрового <i>агентства «RuHunters»</i> в Екатеринбурге, которое на экспертном уровне решает задачи с подбором и обучением персонала
           ul
             li <i>01/</i>  <b>Подбираю</b> лучшие кадры вашего города
             li <i>02/</i>  <b>Обучаю</b> руководителей и менеджеров внутри компании
@@ -44,4 +44,29 @@ section.facts
             .facts__facts-cicle 
               span 80%
             p заказов от наших постоянных клиентов
-      a(class="btn btn-main" href="#") Записаться на бесплатную консультацию
+        .facts__facts-content--swiper.swiper-container
+          .facts__facts__wrapper.swiper-wrapper
+            .facts__facts-item.swiper-slide
+              .facts__facts-cicle 
+                span 95%
+              p кандидатов проходят испытательный срок
+            .facts__facts-item.swiper-slide
+              .facts__facts-cicle 
+                span 17+
+              p лет на рынке трудоустройства и подбора персонала
+            .facts__facts-item.swiper-slide
+              .facts__facts-cicle 
+                span 85%
+              p частных клиентов находит работу с нашей помощью
+            .facts__facts-item.swiper-slide
+              .facts__facts-cicle 
+                span 7000+
+              p человек трудоустроило наше агентство
+            .facts__facts-item.swiper-slide
+              .facts__facts-cicle 
+                span 80%
+              p заказов от наших постоянных клиентов
+          .partners__nav 
+            .partners__prev.facts__facts-prev
+            .partners__next.facts__facts-next
+      button(type="button" class="btn btn-main btn-to-form") Записаться на бесплатную консультацию

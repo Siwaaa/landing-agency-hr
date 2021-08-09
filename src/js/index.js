@@ -1,34 +1,3 @@
-// Accrdions
-const accordionTrigger = document.querySelectorAll(".accordion__trigger"),
-      accordionBody = document.querySelectorAll(".accordion__body");
-
-const accordionsToggle = (triggers, bodyElements) => {
-  triggers.forEach((el) => {
-    el.addEventListener("click", () => {
-      //Находим контентную часть у ближайшего родителя
-      const elBody = el.closest(".accordion-item").querySelector(".accordion__body");
-      el.classList.toggle('accordion__trigger--active');
-      elBody.style.height = `${elBody.scrollHeight}px`;
-      if (elBody.style.height === "0px" || window.getComputedStyle(elBody).height === "0px") {
-        el.setAttribute("aria-expanded", "true");
-        elBody.setAttribute("aria-hidden", "false");
-      } else {
-        elBody.style.height = "0";
-        el.setAttribute("aria-expanded", "false");
-        elBody.setAttribute("aria-hidden", "true");
-      }
-    });
-  });
-  bodyElements.forEach((el) => {
-    el.addEventListener("transitionend", () => {
-      if (el.style.height !== "0px") {
-        el.style.height = "auto";
-      }
-    });
-  });
-};
-accordionsToggle(accordionTrigger, accordionBody);
-
 // Scroll to #
 
 const anchors = document.querySelectorAll('a[href*="#"]')
@@ -45,86 +14,7 @@ for (let anchor of anchors) {
   })
 }
 
-// Modal
-const modal = document.getElementById("modal1");
-const modal2 = document.getElementById("modal2");
-const modal3 = document.getElementById("modal3");
-const modal4 = document.getElementById("modal4");
-
-const video = document.querySelector('.play-video')
-
-// Get the button that opens the modal
-const btn = document.querySelectorAll(".navbar-perezvon");
-const btn2 = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("play");
-
-
-// Get the <span> element that closes the modal
-// const span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.forEach((el) => {
-  el.addEventListener("click", () => {
-    modal.style.display = "block";
-    document.body.style.overflow = 'hidden';
-  })
-})
-btn2.onclick = function() {
-  modal2.style.display = "block";
-  document.body.style.overflow = 'hidden';
-}
-btn3.onclick = function() {
-  modal3.style.display = "block";
-  document.body.style.overflow = 'hidden';
-}
-btn4.onclick = function() {
-  modal4.style.display = "flex";
-  document.body.style.overflow = 'hidden';
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  switch (event.target) {
-    case modal:
-      modal.style.display = "none";
-      document.body.style.overflow = "visible"
-      break;
-    case modal2:
-      modal2.style.display = "none";
-      document.body.style.overflow = "visible"
-      break;
-    case modal3:
-      modal3.style.display = "none";
-      document.body.style.overflow = "visible"
-      break;
-    case modal4:
-      modal4.style.display = "none";
-      document.body.style.overflow = "visible"
-      video.pause();
-      video.currentTime = 0;
-      break;
-    default:
-      break;
-  }
-}
-
-
 // Animation
-
-// Создать наблюдателя
-const observer = new IntersectionObserver(entries => {
-  // перебор записей
-  entries.forEach(entry => {
-    // если элемент появился
-    if (entry.isIntersecting) {
-      // добавить ему CSS-класс
-      entry.target.classList.add('animation');
-    }
-  });
-});
-observer.observe(document.querySelector('.title'));
-
 
 const e = document.querySelectorAll("[data-animate-on-scroll]")
 const t = new IntersectionObserver((e=>{
@@ -140,3 +30,142 @@ e.forEach((e=>{
   t.observe(e)
 }
 ))
+
+// BURGER OM-NOM-NOM
+const burgerBtn = document.querySelector('#burger')
+const navbarMenu = document.querySelector('.navbar__menu')
+const menuContent = document.querySelector('.menu')
+
+burgerBtn.addEventListener('change', function() {
+  if (this.checked) {
+    navbarMenu.style.height = '292px'
+    menuContent.classList.add('active')
+  } else {
+    navbarMenu.style.height = '0'
+    menuContent.classList.remove('active')
+  }
+})
+
+// QUIZ
+
+const quizPage = document.querySelectorAll('.quiz__qu'),
+      btnQuizBack = document.querySelectorAll('.btn-cancel'),
+      timerText = document.querySelector('.timer__qu'),
+      timeline = document.querySelector('.timeline-loading'),
+      dataForm = {
+        'i1': null,
+        'i2': null,
+        'i3': null,
+        'i4': null,
+        'name': null,
+        'company': null,
+        'tel': null,
+      }
+
+quizPage.forEach(el => {
+  el.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let num = Number(el.dataset.quizPage)
+    const data = new FormData(el);
+    for (const [name,value] of data) {
+      console.log(name,value)
+      dataForm[name] = value
+    }
+    if (el.dataset.quizPage != 5) {
+      el.style.display = "none"
+      el.nextSibling.style.display = "block"
+      timeline.style.width = timeline.clientWidth + 60 + 'px'
+    } else {
+      window.location.href ="https://belovamore.ru/";
+    }
+    timerText.innerHTML = `Вопросы ${++num} из 5`
+  })
+})
+
+btnQuizBack.forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const currentPage = el.parentElement.parentElement;
+    currentPage.style.display = "none"
+    currentPage.previousSibling.style.display = "block"
+
+    let num = Number(currentPage.dataset.quizPage)
+    timerText.innerHTML = `Вопросы ${--num} из 5`
+
+    timeline.style.width = timeline.clientWidth - 60 + 'px'
+  })
+})
+
+// MODAL
+
+const modal = document.getElementById("modal-1");
+const btn = document.querySelectorAll(".btn-to-form");
+
+btn.forEach((el) => {
+  el.addEventListener("click", () => {
+    modal.style.display = "block";
+    document.body.style.overflow = 'hidden';
+  })
+})
+
+window.onclick = function(event) {
+  switch (event.target) {
+    case modal:
+      modal.style.display = "none";
+      document.body.style.overflow = "visible"
+      break;
+    default:
+      break;
+  }
+}
+
+// FORM
+
+const sentToServer = (dataForm) => {
+  const url = 'https://script.google.com/macros/s/AKfycbwgLzEDH0cyt-knUGxw_6w456O9RPEcLlomBxv0nFU1WuSdn1lo1e5zUicmhcp5C_J6oA/exec?'
+
+  fetch(url + new URLSearchParams(dataForm), {
+      method: 'GET', 
+      mode: 'no-cors',
+    })
+    .then(() => {
+      switch (dataForm.type) {
+        case "Форма: перезвонить":
+          window.location.href ="https://belovamore.ru/thanks.html";
+          break;
+        case "Форма: покупка":
+          window.location.href ="https://belovamore.ru/payments-full.php";
+          break;
+        case "Форма: бронь":
+          window.location.href ="https://belovamore.ru/payments.php";
+          break;
+      
+        default:
+          break;
+      }
+    })
+    .catch(() => {
+      alert('Данные не отправлены на сервер')
+    })
+}
+
+const forms = document.querySelectorAll('form:not(.quiz__qu)')
+console.log(forms);
+
+forms.forEach((el) => {
+  el.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const data = {};
+    new FormData(el).forEach((value, name) => {
+      data[name] = value;
+      console.log(name, value);
+    })
+
+
+    // sentToServer(data)
+    console.log(data);
+  });
+})

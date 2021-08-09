@@ -1,18 +1,15 @@
 mixin modal(id, item)
-  .modal(id="id" onclick="")
+  .modal(id=id onclick="")
     .modal-content
       .modal-content__body
-        .modal__head
-          h2= item.title
+        .modal-content__head
+          h4 Найти специалиста себе в команду <i>от HR  с 17-летним опытом</i>
         form.modal-form
           case item.type
             when 'form'
-              input(type="hidden" name="perezvon") 
               input(required name="name" type="text" placeholder="Ваше имя" class="input")
-              input(name="kogo" type="text" placeholder="Кого ищете" class="input")
-              input(name="company" type="text" placeholder="Название компании" class="input")
               input(required name="tel" type="tel" placeholder="+7 (_ _ _) _ _ _ - _ _ - _ _" class="input")
-              input(required name="email" type="email" placeholder="Ваш E-mail" class="input")
+              input(name="email" type="email" placeholder="Ваш E-mail" class="input")
 
             when 'thanks'
               input(type="hidden" name="perezvon") 
